@@ -43,7 +43,6 @@ public class Helpers {
 	}
 
 	public static void LongClick(String locator) {
-
 		element = getDriver().findElement(By.id(locator));
 
 		Actions actions = new Actions(getDriver());
@@ -72,9 +71,7 @@ public class Helpers {
 	}
 
 	public static void Swipe(String locator, int deslocation, int seconds) {
-
 		try {
-
 			element = getDriver().findElement(By.xpath(locator));
 
 			int startX = element.getLocation().getX();
@@ -82,25 +79,28 @@ public class Helpers {
 			int endX = startX + element.getSize().getWidth() - deslocation;
 			int endY = startY + element.getSize().getHeight();
 
-			new TouchAction<>(getDriver()).press(point(startX, startY)).waitAction(waitOptions(ofSeconds(seconds)))
-					.moveTo(point(endX, endY)).release().perform();
+			new TouchAction<>(getDriver())
+				.press(point(startX, startY))
+				.waitAction(waitOptions(ofSeconds(seconds)))
+				.moveTo(point(endX, endY))
+				.release()
+				.perform();
 
 		} catch (NoSuchElementException e) {
 			fail("An element could not be located on the page using the given search parameters.");
 		}
 	}
 	
-	public static void Drag_n_Drop(String origin, String target) {
-		
+	public static void Drag_n_Drop(String origin, String target) {		
 		try {			
 			WebElement start = getDriver().findElement(By.xpath(origin));
 			WebElement end = getDriver().findElement(By.xpath(target));
 			
 			new TouchAction<>(getDriver())
-			.longPress(longPressOptions().withElement(ElementOption.element(start)))
-			.moveTo(element(end))
-			.release()
-			.perform();
+				.longPress(longPressOptions().withElement(ElementOption.element(start)))
+				.moveTo(element(end))
+				.release()
+				.perform();
 			
 		} catch (NoSuchElementException e) {
 			fail("An element could not be located on the page using the given search parameters.");

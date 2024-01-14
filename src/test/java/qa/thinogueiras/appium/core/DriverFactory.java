@@ -1,7 +1,5 @@
 package qa.thinogueiras.appium.core;
 
-import static java.util.concurrent.TimeUnit.SECONDS;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -36,7 +34,7 @@ public class DriverFactory {
 			e.printStackTrace();		
 		}
 		
-		driver.manage().timeouts().implicitlyWait(0, SECONDS);
+		//driver.manage().timeouts().implicitlyWait(0, SECONDS);
 	}
 	
 	public static void killDriver() {
