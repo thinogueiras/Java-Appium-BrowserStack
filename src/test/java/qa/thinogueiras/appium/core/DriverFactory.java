@@ -3,16 +3,14 @@ package qa.thinogueiras.appium.core;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import org.openqa.selenium.remote.DesiredCapabilities;
-
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.options.UiAutomator2Options;
 
 public class DriverFactory {
 	
-	public static AppiumDriver<MobileElement> driver;
+	public static AppiumDriver driver;
 	
-	public static AppiumDriver<?> getDriver() {
+	public static AppiumDriver getDriver() {
 		if(driver == null) {
 			createDriver();
 		}
@@ -20,21 +18,19 @@ public class DriverFactory {
 	}
 	
 	private static void createDriver() {
-		DesiredCapabilities caps = new DesiredCapabilities();
-		caps.setCapability("platformName", "Android");
-		caps.setCapability("deviceName", "Android Emulator");
-		caps.setCapability("automationName", "UIAutomator2");
-		caps.setCapability("app", "/home/thiago.nogueira/eclipse-workspace/java-appium-android/app/yodapp-beta.apk");
-		caps.setCapability("udid", "emulator-5554");
-		caps.setCapability("autoGrantPermissions", true);
+		UiAutomator2Options options = new UiAutomator2Options();
+		options.setCapability("platformName", "Android");
+		options.setCapability("deviceName", "Android Emulator");
+		options.setCapability("automationName", "UIAutomator2");
+		options.setCapability("app", "/home/thiago.nogueira/eclipse-workspace/java-appium-android/app/yodapp-beta.apk");
+		options.setCapability("udid", "emulator-5554");
+		options.setCapability("autoGrantPermissions", true);
 
 		try {
-			driver = new AppiumDriver<MobileElement>(new URL("http://localhost:4723/"), caps);			
+			driver = new AppiumDriver(new URL("http://localhost:4723/"), options);			
 		} catch (MalformedURLException e) {			
 			e.printStackTrace();		
-		}
-		
-		//driver.manage().timeouts().implicitlyWait(0, SECONDS);
+		}		
 	}
 	
 	public static void killDriver() {

@@ -23,7 +23,7 @@
 		<dependency>
 			<groupId>io.appium</groupId>
 			<artifactId>java-client</artifactId>
-			<version>7.6.0</version>
+			<version>9.0.0</version>
 		</dependency>
 		<dependency>
 			<groupId>io.qameta.allure</groupId>
@@ -31,5 +31,11 @@
 			<version>2.23.0</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.15.1</version>
+		</dependency>
+
 	</dependencies>
 </project>

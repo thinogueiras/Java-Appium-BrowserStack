@@ -16,11 +16,23 @@ public class Drag_drop extends BaseTest {
 		NavigateTo("Star Wars");
 		ClickText("Lista");
 
-		String locatorOrigin = "//*[contains(@text, '@skywalker')]/../../..//*[contains(@resource-id, 'drag_handle')]";
+		String locatorOrigin = "//*[contains(@text, '@leia')]/../../..//*[contains(@resource-id, 'drag_handle')]";
 
-		String locatorTarget = "//*[contains(@text, '@mando')]/../../..//*[contains(@resource-id, 'drag_handle')]";
+		String locatorTarget = "//*[contains(@text, '@skywalker')]/../../..//*[contains(@resource-id, 'drag_handle')]";
 		
-		Drag_n_Drop(locatorOrigin, locatorTarget);		
+		Drag_n_Drop(locatorOrigin, locatorTarget);
+		
+		locatorOrigin = "//*[contains(@text, '@darthvader')]/../../..//*[contains(@resource-id, 'drag_handle')]";
+
+		locatorTarget = "//*[contains(@text, '@skywalker')]/../../..//*[contains(@resource-id, 'drag_handle')]";
+		
+		Drag_n_Drop(locatorOrigin, locatorTarget);
+		
+		locatorOrigin = "//*[contains(@text, '@mando')]/../../..//*[contains(@resource-id, 'drag_handle')]";
+
+		locatorTarget = "//*[contains(@text, '@skywalker')]/../../..//*[contains(@resource-id, 'drag_handle')]";
+		
+		Drag_n_Drop(locatorOrigin, locatorTarget);
 	}
 	
 	@Test

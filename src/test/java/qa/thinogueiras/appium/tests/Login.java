@@ -36,7 +36,7 @@ public class Login extends BaseTest {
 	}
 	
 	@Test
-	public void naoDeveComSenhaIncorreta() {		
+	public void deveValidarSenhaIncorreta() {		
 		
 		InputTextById(password, "test");
 		

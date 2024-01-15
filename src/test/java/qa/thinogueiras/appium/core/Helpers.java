@@ -1,20 +1,20 @@
 package qa.thinogueiras.appium.core;
 
-import static io.appium.java_client.touch.LongPressOptions.longPressOptions;
-import static io.appium.java_client.touch.WaitOptions.waitOptions;
-import static io.appium.java_client.touch.offset.ElementOption.element;
-import static io.appium.java_client.touch.offset.PointOption.point;
-import static java.time.Duration.ofSeconds;
 import static org.junit.jupiter.api.Assertions.fail;
 import static qa.thinogueiras.appium.core.DriverFactory.getDriver;
+
+import java.time.Duration;
+import java.util.Arrays;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-
-import io.appium.java_client.TouchAction;
-import io.appium.java_client.touch.offset.ElementOption;
+import org.openqa.selenium.interactions.Pause;
+import org.openqa.selenium.interactions.PointerInput;
+import org.openqa.selenium.interactions.PointerInput.Kind;
+import org.openqa.selenium.interactions.PointerInput.MouseButton;
+import org.openqa.selenium.interactions.Sequence;
 
 public class Helpers {
 
@@ -79,31 +79,43 @@ public class Helpers {
 			int endX = startX + element.getSize().getWidth() - deslocation;
 			int endY = startY + element.getSize().getHeight();
 
-			new TouchAction<>(getDriver())
-				.press(point(startX, startY))
-				.waitAction(waitOptions(ofSeconds(seconds)))
-				.moveTo(point(endX, endY))
-				.release()
-				.perform();
+			GenericSwipe(startX, startY, endX, endY);
 
 		} catch (NoSuchElementException e) {
 			fail("An element could not be located on the page using the given search parameters.");
 		}
 	}
-	
-	public static void Drag_n_Drop(String origin, String target) {		
-		try {			
-			WebElement start = getDriver().findElement(By.xpath(origin));
-			WebElement end = getDriver().findElement(By.xpath(target));
-			
-			new TouchAction<>(getDriver())
-				.longPress(longPressOptions().withElement(ElementOption.element(start)))
-				.moveTo(element(end))
-				.release()
-				.perform();
-			
-		} catch (NoSuchElementException e) {
-			fail("An element could not be located on the page using the given search parameters.");
-		}
+
+	public static void GenericSwipe(int startX, int startY, int endX, int endY) {
+		PointerInput FINGER = new PointerInput(Kind.TOUCH, "finger");
+		Sequence drag = new Sequence(FINGER, 1)
+				.addAction(
+						FINGER.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), startX, startY))
+				.addAction(FINGER.createPointerDown(MouseButton.LEFT.asArg()))
+				.addAction(new Pause(FINGER, Duration.ofMillis(500)))
+				.addAction(
+						FINGER.createPointerMove(Duration.ofMillis(1000), PointerInput.Origin.viewport(), endX, endY))
+				.addAction(FINGER.createPointerUp(MouseButton.LEFT.asArg()));
+		getDriver().perform(Arrays.asList(drag));
+	}
+
+	public static void Drag_n_Drop(String origem, String destino) {
+		WebElement inicio = getDriver().findElement(By.xpath(origem));
+		WebElement fim = getDriver().findElement(By.xpath(destino));
+
+		PointerInput FINGER = new PointerInput(Kind.TOUCH, "finger");
+		Sequence drag_n_drop = new Sequence(FINGER, 1);
+		drag_n_drop
+				.addAction(FINGER.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(),
+						inicio.getLocation().getX(), inicio.getLocation().getY()));
+
+		drag_n_drop.addAction(FINGER.createPointerDown(MouseButton.LEFT.asArg()));
+		drag_n_drop.addAction(new Pause(FINGER, Duration.ofMillis(1000)));
+
+		drag_n_drop.addAction(FINGER.createPointerMove(Duration.ofMillis(1000), PointerInput.Origin.viewport(),
+						fim.getLocation().getX(), fim.getLocation().getY()));
+
+		drag_n_drop.addAction(FINGER.createPointerUp(MouseButton.LEFT.asArg()));
+		getDriver().perform(Arrays.asList(drag_n_drop));
 	}
 }

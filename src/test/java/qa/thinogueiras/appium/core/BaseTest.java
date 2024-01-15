@@ -1,6 +1,6 @@
 package qa.thinogueiras.appium.core;
 
-import static java.util.concurrent.TimeUnit.SECONDS;
+import static java.time.Duration.ofSeconds;
 import static org.apache.commons.io.FileUtils.copyFile;
 import static qa.thinogueiras.appium.core.DriverFactory.getDriver;
 import static qa.thinogueiras.appium.core.DriverFactory.killDriver;
@@ -17,11 +17,10 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
 
 public class BaseTest {
 
-	public static AppiumDriver<MobileElement> driver;
+	public static AppiumDriver driver;
 
 	private String TestMethodName = "";
 	
@@ -32,14 +31,14 @@ public class BaseTest {
 	@BeforeEach
 	public void startSession() throws MalformedURLException {
 		getDriver();
-		getDriver().manage().timeouts().implicitlyWait(10, SECONDS);
+		getDriver().manage().timeouts().implicitlyWait(ofSeconds(10));
 
 		getStarted();
 	}	
 
 	public void screenshot(String testName) throws IOException {
 		File scrFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
-		copyFile(scrFile, new File("target/Screenshots/" + testName + ".jpg"));		
+		copyFile(scrFile, new File("target/Screenshots/" + testName + ".jpg"));
 	}	
 
 	@AfterEach
