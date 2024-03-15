@@ -1,0 +1,24 @@
+userName: ${{ secrets.BROWSERSTACK_USERNAME }}
+accessKey: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+framework: junit5
+app: app/yodapp-beta.apk
+platforms:
+  - platformName: android
+    deviceName: Samsung Galaxy S23 Ultra
+    platformVersion: 13.0
+  - platformName: android
+    deviceName: Google Pixel 6 Pro
+    platformVersion: 12.0
+  - platformName: android
+    deviceName: Motorola Moto G71 5G
+    platformVersion: 11.0
+parallelsPerPlatform: 1
+browserstackLocal: false
+buildName: junit5-appium
+buildIdentifier: ${BUILD_NUMBER}
+projectName: Yodapp Android
+testObservability: true
+networkLogs: true
+consoleLogs: info
+
+source: junit5:appium-eclipse:v1.0.8
