@@ -11,7 +11,7 @@
 		<maven.compiler.target>11</maven.compiler.target>
 		<maven.compiler.source>11</maven.compiler.source>
 		<surefire.plugin.version>3.0.0-M5</surefire.plugin.version>
-		<config.file>qa/thinogueiras/appium/tests/ClickTest.java</config.file>
+		<config.file>qa/thinogueiras/appium/tests/RadioTest.java</config.file>
 	</properties>
 
 	<dependencies>
@@ -33,7 +33,7 @@
 		<dependency>
 			<groupId>io.appium</groupId>
 			<artifactId>java-client</artifactId>
-			<version>9.0.0</version>
+			<version>9.2.0</version>
 		</dependency>
 		<dependency>
 			<groupId>io.qameta.allure</groupId>
