@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import qa.thinogueiras.appium.core.BaseTest;
 
-public class Drag_drop extends BaseTest {
+public class DNDTest extends BaseTest {
 
 	@Test
 	public void deveArrastarLukeSkywalkerParaTopoLista() {

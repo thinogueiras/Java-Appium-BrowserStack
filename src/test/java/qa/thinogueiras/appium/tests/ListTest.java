@@ -12,7 +12,7 @@ import org.openqa.selenium.WebElement;
 
 import qa.thinogueiras.appium.core.BaseTest;
 
-public class List extends BaseTest {
+public class ListTest extends BaseTest {
 
 	@Test
 	public void deveValidarTextoSobrePrincesaLeia() {

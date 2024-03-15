@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 
 import qa.thinogueiras.appium.core.BaseTest;
 
-public class Spinner extends BaseTest {
+public class SpinnerTest extends BaseTest {
 
 	@Test
 	public void deveEscolherNivelJedi() {

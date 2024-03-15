@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import qa.thinogueiras.appium.core.BaseTest;
 
-public class Search extends BaseTest {
+public class SearchTest extends BaseTest {
 
 	private WebDriverWait wait;
 

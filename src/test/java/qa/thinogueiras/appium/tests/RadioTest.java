@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import qa.thinogueiras.appium.core.BaseTest;
 
-public class Radio extends BaseTest {
+public class RadioTest extends BaseTest {
 
 	@Test
 	public void deveSelecionarOpcaoPython() {

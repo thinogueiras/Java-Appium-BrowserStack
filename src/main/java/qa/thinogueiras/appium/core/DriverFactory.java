@@ -22,12 +22,12 @@ public class DriverFactory {
 		options.setCapability("platformName", "Android");
 		options.setCapability("deviceName", "Android Emulator");
 		options.setCapability("automationName", "UIAutomator2");
-		options.setCapability("app", "/home/thiago.nogueira/eclipse-workspace/java-appium-android/app/yodapp-beta.apk");
+		options.setCapability("app", "C:\\Users\\Thiago\\eclipse-workspace\\Java-Appium-Tests\\app\\yodapp-beta.apk");
 		options.setCapability("udid", "emulator-5554");
 		options.setCapability("autoGrantPermissions", true);
 
 		try {
-			driver = new AppiumDriver(new URL("http://localhost:4723/"), options);			
+			driver = new AppiumDriver(new URL("http://localhost:4723"), options);			
 		} catch (MalformedURLException e) {			
 			e.printStackTrace();		
 		}		
