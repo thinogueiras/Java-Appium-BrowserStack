@@ -1,4 +1,6 @@
-# Automação de Testes para Android com Java, JUnit 5 e Appium, com integração com o BrowserStack.
+# Automação de Testes para Android utilizando Java, JUnit 5 e Appium 9.2.0, com integração com o BrowserStack.
+
+[![BrowserStack Tests](https://github.com/thinogueiras/Java-Appium-BrowserStack/actions/workflows/continuous-testing.yml/badge.svg?branch=main)](https://github.com/thinogueiras/Java-Appium-BrowserStack/actions/workflows/continuous-testing.yml)
 
 ## Pré-requisitos mínimos de ambiente:
 
