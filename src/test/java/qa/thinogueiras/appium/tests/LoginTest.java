@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 
 import qa.thinogueiras.appium.core.BaseTest;
 
-public class Login extends BaseTest {
+public class LoginTest extends BaseTest {
 	
 	private String email = "com.qaxperience.yodapp:id/etEmail";
 	private String password = "com.qaxperience.yodapp:id/etPassword";
@@ -36,7 +36,7 @@ public class Login extends BaseTest {
 	}
 	
 	@Test
-	public void naoDeveComSenhaIncorreta() {		
+	public void deveValidarSenhaIncorreta() {		
 		
 		InputTextById(password, "test");
 		

@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import qa.thinogueiras.appium.core.BaseTest;
 
-public class Click extends BaseTest {	
+public class ClickTest extends BaseTest {	
 
 	@Test
 	public void deveRealizarUmCliqueSimples() {
@@ -23,7 +23,7 @@ public class Click extends BaseTest {
 	}
 	
 	@Test
-	public void deveRealizarUmCliqueLongo() throws InterruptedException {
+	public void deveRealizarUmCliqueLongo() {
 		NavigateTo("Clique em Botões");
 		ClickText("Clique longo");
 		

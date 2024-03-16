@@ -13,7 +13,7 @@ import org.openqa.selenium.By;
 
 import qa.thinogueiras.appium.core.BaseTest;
 
-public class Checkbox extends BaseTest {
+public class CheckboxTest extends BaseTest {
 
 	@Test
 	public void deveMarcarAsTechsQueUsamAppium() {

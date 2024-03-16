@@ -10,3 +10,5 @@ allure*
 .idea
 classes/
 lib/
+logs
+*.csv

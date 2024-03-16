@@ -12,7 +12,7 @@ import org.openqa.selenium.By;
 
 import qa.thinogueiras.appium.core.BaseTest;
 
-public class Swipe extends BaseTest {
+public class SwipeTest extends BaseTest {
 
 	@Test
 	public void deveRemoverDarthVader() {
